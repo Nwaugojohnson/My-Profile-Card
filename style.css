@@ -1,0 +1,287 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --ink: #0f0e0d;
+  --paper: #f5f0e8;
+  --cream: #ede8dc;
+  --accent: #c8472a;
+  --accent-light: #f0d5ce;
+  --muted: #7a7368;
+  --border: #d4ccba;
+  --card-bg: #faf7f2;
+  --shadow: rgba(15, 14, 13, 0.12);
+  --tag-bg: #e8e2d4;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--paper);
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 39px,
+      var(--border) 39px,
+      var(--border) 40px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 39px,
+      var(--border) 39px,
+      var(--border) 40px
+    );
+  background-size: 40px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  font-family: "DM Sans", sans-serif;
+}
+
+article[data-testid="test-profile-card"] {
+  background: var(--card-bg);
+  border: 2px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--ink);
+  max-width: 860px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  grid-template-rows: auto;
+  overflow: hidden;
+}
+
+.card-left {
+  background: var(--ink);
+  padding: 2.5rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-left::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+/* Avatar */
+figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.avatar-ring {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 3px solid var(--accent);
+  padding: 4px;
+  background: linear-gradient(135deg, var(--accent) 0%, transparent 100%);
+}
+
+img[data-testid="test-user-avatar"] {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  border: 2px solid var(--ink);
+}
+
+figcaption {
+  font-family: "DM Mono", monospace;
+  font-size: 0.65rem;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+header {
+  text-align: center;
+}
+
+h1[data-testid="test-user-name"] {
+  font-family: "DM Serif Display", serif;
+  font-size: 1.55rem;
+  color: var(--paper);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.role-badge {
+  display: inline-block;
+  margin-top: 0.5rem;
+  background: var(--accent);
+  color: white;
+  font-size: 0.65rem;
+  font-family: "DM Mono", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.25rem 0.6rem;
+  border-radius: 2px;
+}
+
+
+nav[data-testid="test-user-social-links"] ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+nav[data-testid="test-user-social-links"] li a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  transition:
+    background 0.18s,
+    color 0.18s;
+  border: 1px solid transparent;
+}
+
+nav[data-testid="test-user-social-links"] li a:hover,
+nav[data-testid="test-user-social-links"] li a:focus-visible {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--accent);
+  color: white;
+  outline: none;
+}
+
+nav[data-testid="test-user-social-links"] li a:focus-visible {
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+.social-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  fill: currentColor;
+}
+
+.card-right {
+  padding: 2.5rem 2.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  border-left: 2px solid var(--ink);
+}
+
+.bio-section header {
+  text-align: left;
+}
+
+.section-label {
+  font-family: "DM Mono", monospace;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.section-label::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+p[data-testid="test-user-bio"] {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--ink);
+  font-weight: 300;
+}
+
+.time-block {
+  background: var(--ink);
+  border: 2px solid var(--ink);
+  padding: 1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.time-label {
+  font-family: "DM Mono", monospace;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+}
+
+time[data-testid="test-user-time"] {
+  font-family: "DM Mono", monospace;
+  font-size: 1.1rem;
+  color: var(--accent);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  word-break: break-all;
+}
+
+.lists-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4rem;
+}
+
+section[data-testid="test-user-hobbies"] h2,
+section[data-testid="test-user-dislikes"] h2 {
+  font-family: "DM Mono", monospace;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  margin-bottom: 0.65rem;
+}
+
+.tag-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tag-list li {
+  background: var(--tag-bg);
+  border: 1px solid var(--border);
+  font-size: 0.75rem;
+  padding: 0.25rem 0.55rem;
+  border-radius: 2px;
+  color: var(--ink);
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+section[data-testid="test-user-dislikes"] .tag-list li {
+  background: var(--accent-light);
+  border-color: #e0b0a5;
+}

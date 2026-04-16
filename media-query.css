@@ -1,0 +1,46 @@
+@media (max-width: 640px) {
+      article[data-testid="test-profile-card"] {
+        grid-template-columns: 1fr;
+        box-shadow: 4px 4px 0 var(--ink);
+      }
+ 
+      .card-left {
+        padding: 2rem 1.5rem;
+        align-items: center;
+        text-align: center;
+      }
+ 
+      .card-left::before { top: -40px; right: -40px; width: 120px; height: 120px; }
+ 
+      nav[data-testid="test-user-social-links"] ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+ 
+      .card-right {
+        border-left: none;
+        border-top: 2px solid var(--ink);
+        padding: 1.8rem 1.5rem;
+      }
+ 
+      .lists-row {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+ 
+      h1[data-testid="test-user-name"] { font-size: 1.35rem; }
+    }
+ 
+    @media (min-width: 641px) and (max-width: 860px) {
+      article[data-testid="test-profile-card"] {
+        grid-template-columns: 210px 1fr;
+      }
+      .card-left { padding: 2rem 1.4rem; }
+    }
+ 
+    /* Focus styles */
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
